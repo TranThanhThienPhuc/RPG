@@ -3,9 +3,9 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
-    public int level;
-    public int expRequired;
-    public int currentExp;
+    public static int level = 1;
+    public static int expRequired = 100;
+    public static int currentExp = 0;
 
 
     void Awake()
@@ -26,6 +26,7 @@ public class LevelManager : MonoBehaviour
         currentExp += expPoints;
         if(currentExp >= expRequired)
         {
+            level++;
             currentExp -= expRequired;
             expRequired *= 2;
         }

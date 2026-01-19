@@ -186,10 +186,11 @@ public class BattleSystem : MonoBehaviour
             Destroy(playerUnit.gameObject);
             Destroy(enemyUnit.gameObject);
             Battle.SetActive(false);
+            LevelManager.Instance.AddExp(100);
         }
         else if (state == State.LOST)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(2);
         }
     }
 }

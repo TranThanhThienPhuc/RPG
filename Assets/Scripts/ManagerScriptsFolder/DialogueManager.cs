@@ -11,8 +11,8 @@ public class DialogueManager : MonoBehaviour
     private int conversationIndex;
 
     [Header("References")]
-    public TMP_Text dialogDisplay;
-    public TMP_Text titleDisplay;
+    //public string dialogue;
+    //public string title;
     public Dialogue data;
     private InputAction interactAction;
 
@@ -54,6 +54,6 @@ public class DialogueManager : MonoBehaviour
 
     void FinishConversation()
     {
-            data = null;
+        data = null;
     }   
 }

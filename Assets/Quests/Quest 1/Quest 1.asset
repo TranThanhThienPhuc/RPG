@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be93f4bf9ae33c847a429ec687f4bde8, type: 3}
-  m_Name: Quest
+  m_Name: Quest 1
   m_EditorClassIdentifier: Assembly-CSharp::Quests
-  questName: Fetch
+  questName: Fetch herbs
   elements:
   - stage: 0
     data: {fileID: 11400000, guid: eacb732e9c9d2c749a4076577bf67e28, type: 2}
   - stage: 1
     data: {fileID: 11400000, guid: 9b1ea9e749445354f8d07ca38f96539d, type: 2}
-  - stage: 0
-    data: {fileID: 11400000, guid: e9bfb85ea918a004fa78cf515c77027b, type: 2}
