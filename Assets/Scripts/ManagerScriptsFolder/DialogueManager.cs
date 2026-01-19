@@ -1,0 +1,57 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine.UI;
+
+public class DialogueManager : MonoBehaviour
+{
+    public List<string> lines;
+    public int lineIndex;
+    private int conversationIndex;
+
+    [Header("References")]
+    public TMP_Text dialogDisplay;
+    public TMP_Text titleDisplay;
+    public Dialogue data;
+
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (lines.Count <= 0) return;
+        if (lineIndex >= lines.Count) FinishConversation();
+    }
+
+    void NextLine()
+    {
+        lineIndex++;
+
+        if (lineIndex >= lines.Count)
+        {
+            if (data != null) NextConversation();
+            else FinishConversation();
+        }
+    }
+
+    void NextConversation()
+    {
+        lineIndex = 0;
+        conversationIndex++;
+
+        if (conversationIndex >= data.conversations.Length)
+        {
+            FinishConversation();
+            return;
+        }
+    }
+
+    void FinishConversation()
+    {
+            data = null;
+    }   
+}
