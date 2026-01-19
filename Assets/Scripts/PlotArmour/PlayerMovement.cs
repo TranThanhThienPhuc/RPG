@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public bool interactable;
     public bool freeze;
     public bool isInteracting;
+    public NPC questgiver;
 
     void Update()
     {
@@ -23,11 +24,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && interactable == true) Interact();
     }
-
+    
     void Interact()
     {
         freeze = true;
         isInteracting = true;
+        questgiver.GiveQuest();
         Debug.Log("Started dialogue");
     }
     private void FixedUpdate()

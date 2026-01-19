@@ -4,8 +4,7 @@ using UnityEngine.Events;
 public class NPC : MonoBehaviour
 {
     public Quest[] questOrder;
-    public Dialogue incompletedDialogue;
-    public Dialogue denyQuest;
+    public DialogueManager dialogueMan;
     public int questIndex;
 
 
@@ -15,9 +14,14 @@ public class NPC : MonoBehaviour
         public Quests theQuest;
         public UnityEvent completedTask;
     }
-    void GiveQuest()
+    public void GiveQuest()
     {
-
+        if (questOrder == null)
+        {
+            print("There is no quest");
+            return;
+        }
+        dialogueMan.NewDialogue(questOrder[questIndex].theQuest.elements[questIndex].data as Dialogue);
     }
     void NextQuest()
     {

@@ -14,6 +14,8 @@ public class CanvasManager : MonoBehaviour
     [Header("Reference")]
     public PlayerMovement player;
     public ObjectiveManager objective;
+    [HideInInspector] public DialogueManager dialogue;
+
     void Start()
     {
         
