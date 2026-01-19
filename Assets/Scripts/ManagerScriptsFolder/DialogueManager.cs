@@ -14,10 +14,11 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text dialogDisplay;
     public TMP_Text titleDisplay;
     public Dialogue data;
+    private InputAction interactAction;
 
     void Start()
     {
-
+        interactAction = InputSystem.actions.FindAction("Interact");
     }
 
     // Update is called once per frame
@@ -25,6 +26,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (lines.Count <= 0) return;
         if (lineIndex >= lines.Count) FinishConversation();
+        if (interactAction.WasPressedThisFrame()) NextLine();
     }
 
     void NextLine()
