@@ -13,7 +13,7 @@ public class CanvasManager : MonoBehaviour
 
     [Header("Reference")]
     public PlayerMovement player;
-    public ObjectiveManager objective;
+    public QuestManager objective;
     [HideInInspector] public DialogueManager dialogue;
 
     void Start()
@@ -28,13 +28,24 @@ public class CanvasManager : MonoBehaviour
         else interactDisplay.text = string.Empty;
 
         if (player.isInteracting) StartDialogue();
+        else player.freeze = false;
 
-        levelDisplay.text = "Level: " + LevelManager.level;
+            levelDisplay.text = "Level: " + LevelManager.level;
         exp.text = "Exp: " + LevelManager.currentExp + "/" + LevelManager.expRequired;
     }
 
     void StartDialogue()
     {
         dialogueDisplay.SetActive(true);
+    }
+
+    public void SetObjective(string itemName, string itemAmount)
+    {
+        objectiveDisplay.text = "Current Objective\n" + "Gather " + itemAmount + " " + itemName;
+    }
+
+    public void ClearObjective()
+    {
+        objectiveDisplay.text = string.Empty;
     }
 }

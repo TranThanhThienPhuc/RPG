@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Quests.Stages stage;
+    public PlayerMovement player;
+    public NPC questGiver;
+
+    public void ReceiveQuest(Quests.Stages stages)
     {
-        
+        this.stage = stages;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -8,6 +8,15 @@ public class LevelManager : MonoBehaviour
     public static int currentExp = 0;
 
 
+    public void Update()
+    {
+        if (currentExp >= expRequired)
+        {
+            level++;
+            currentExp -= expRequired;
+            expRequired *= 2;
+        }
+    }
     void Awake()
     {
         if (Instance == null)
@@ -24,12 +33,6 @@ public class LevelManager : MonoBehaviour
     public void AddExp(int expPoints)
     {
         currentExp += expPoints;
-        if(currentExp >= expRequired)
-        {
-            level++;
-            currentExp -= expRequired;
-            expRequired *= 2;
-        }
     }
 
 }

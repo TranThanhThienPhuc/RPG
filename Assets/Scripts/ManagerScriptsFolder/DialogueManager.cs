@@ -31,7 +31,10 @@ public class DialogueManager : MonoBehaviour
         if (lines.Count <= 0) return;
         //if (lineIndex >= lines.Count) FinishConversation();
 
-        dialogue.text = lines[lineIndex];
+        Debug.Log(lineIndex + "|" + lines.Count.ToString());
+
+        if (lines != null) dialogue.text = lines[lineIndex];
+        
         if (interactAction.WasPressedThisFrame()) NextLine();
     }
 
@@ -47,27 +50,30 @@ public class DialogueManager : MonoBehaviour
         lineIndex++;
         if (lineIndex >= lines.Count)
         {
+            lineIndex = 0;
             if (data != null) NextConversation();
         }
-        else FinishConversation();
     }
 
     public void NextConversation()
     {
-        lineIndex = 0;
         conversationIndex++;
-        lines = data.conversations[conversationIndex].lines.ToList();
+        
         if (conversationIndex >= data.conversations.Length)
         {
             FinishConversation();
             return;
         }
+        else lines = data.conversations[conversationIndex].lines.ToList();
     }
 
     public void FinishConversation()
     {
+        canvasManager.player.isInteracting = false;
+        lineIndex = 0;
+        conversationIndex = 0;
         data = null;
-        canvasManager.dialogueDisplay.SetActive(false);
+        gameObject.SetActive(false);
     }   
 
 }

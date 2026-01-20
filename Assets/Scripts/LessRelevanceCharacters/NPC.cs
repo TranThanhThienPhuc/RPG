@@ -4,8 +4,11 @@ using UnityEngine.Events;
 public class NPC : MonoBehaviour
 {
     public Quest[] questOrder;
-    public DialogueManager dialogueMan;
+    public DialogueManager dialogueManager;
     public int questIndex;
+    public int questStage;
+    public bool incomplete;
+    public PlayerMovement player;
 
 
     [System.Serializable]
@@ -21,7 +24,8 @@ public class NPC : MonoBehaviour
             print("There is no quest");
             return;
         }
-        dialogueMan.NewDialogue(questOrder[questIndex].theQuest.elements[questIndex].data as Dialogue);
+        dialogueManager.NewDialogue(questOrder[questIndex].theQuest.elements[questStage].data as Dialogue);
+        player.QuestStart(questOrder[questIndex].theQuest);
     }
     void NextQuest()
     {
