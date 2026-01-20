@@ -42,7 +42,7 @@ public class CanvasManager : MonoBehaviour
 
     public void SetObjective(string itemName, string itemAmount)
     {
-        objectiveDisplay.text = "Current Objective\n" + "Gather " + itemAmount + " " + itemName;
+        objectiveDisplay.text = "Current Objective:\n" + "Gather " + itemAmount + " " + itemName;
     }
 
     public void ClearObjective()

@@ -129,7 +129,7 @@ MonoBehaviour:
   unitName: Lil' Slime
   maxHP: 100
   currentHP: 100
-  rockDamage: 100
+  rockDamage: 10
   healPercentage: 0
   enemyDamage: 0
   anim: {fileID: 4785442984016634327}

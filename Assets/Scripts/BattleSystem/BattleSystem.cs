@@ -1,8 +1,6 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using static UnityEditor.Rendering.FilterWindow;
 
 public enum State { START, LOST, WIN, PLAYER, ENEMY }
 

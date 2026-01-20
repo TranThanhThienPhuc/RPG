@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce5073701ff291f4fbbfca32a383518a, type: 3}
-  m_Name: Dialogue 2-3
+  m_Name: Dialogue 3
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   conversations:
   - title: Slimey
@@ -18,3 +18,7 @@ MonoBehaviour:
     - Yummy!
     - Thank you so much!
     - Let me craft some potions for you as wel-
+  - title: Bandit
+    lines:
+    - Slimes?
+    - Free EXP!

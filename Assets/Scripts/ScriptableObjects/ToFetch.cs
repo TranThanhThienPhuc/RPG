@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.Progress;
 
 [CreateAssetMenu(fileName = "ToFetch", menuName = "Quests/ToFetch")]
 public class ToFetch : ScriptableObject

@@ -109,7 +109,7 @@ MonoBehaviour:
   currentHP: 100
   rockDamage: 0
   healPercentage: 0
-  enemyDamage: 50
+  enemyDamage: 100
   anim: {fileID: 6650047081271919609}
 --- !u!95 &6650047081271919609
 Animator:

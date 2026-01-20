@@ -9,6 +9,7 @@ public class NPC : MonoBehaviour
     public int questStage;
     public bool incomplete;
     public PlayerMovement player;
+    public Animator anim;
 
 
     [System.Serializable]
@@ -16,6 +17,10 @@ public class NPC : MonoBehaviour
     {
         public Quests theQuest;
         public UnityEvent completedTask;
+    }
+    public void Death()
+    {
+        anim.SetBool("Dead", true);
     }
     public void GiveQuest()
     {

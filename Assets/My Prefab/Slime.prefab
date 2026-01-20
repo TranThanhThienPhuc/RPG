@@ -108,6 +108,24 @@ MonoBehaviour:
   ani: {fileID: 4785442984016634327}
   direction: {x: 0, y: 0}
   spriteRenderer: {fileID: 5282986087635643420}
+  interactable: 0
+  freeze: 0
+  isInteracting: 0
+  questgiver: {fileID: 0}
+  activeQuest: {fileID: 0}
+  canvasManager: {fileID: 0}
+  questStage: 0
+  fetch:
+    m_Name: Fetch
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 79d2eecd-4c4b-4541-a20e-16b091eb10d1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  ItemRetrieved: 0
+  canFetch: 0
 --- !u!95 &4785442984016634327
 Animator:
   serializedVersion: 7

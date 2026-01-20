@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject BattleStart;
     [SerializeField] private SpriteRenderer playerRen;
     [SerializeField] private List<SpriteRenderer> enemyRen;
-    [SerializeField] private GameObject theEnemy;
+    public GameObject theEnemy;
     [SerializeField] LayerMask mask;
     [SerializeField] private int distance;
 
@@ -44,9 +44,9 @@ public class PlayerAttack : MonoBehaviour
             battle.state = State.START;
             theEnemy = hit.collider.gameObject;
             StartCoroutine(battle.BattleSetUp(hit.collider.gameObject.GetComponent<Enemy>().prefabObj));
-            //StartCoroutine(battle.BattleSetUp());
             playerRen.enabled = false;
             movement.enabled = false;
+            theEnemy.SetActive(false);
             foreach (SpriteRenderer Ren in enemyRen)
                 Ren.enabled = false;
         }

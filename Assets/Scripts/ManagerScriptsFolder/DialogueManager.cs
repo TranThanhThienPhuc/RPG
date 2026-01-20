@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using TMPro;
 using System.Linq;
-using Unity.VisualScripting;
 public class DialogueManager : MonoBehaviour
 {
     public List<string> lines;
@@ -19,6 +18,7 @@ public class DialogueManager : MonoBehaviour
     private InputAction interactAction;
     public CanvasManager canvasManager;
     public PlayerMovement player;
+    public NPC npc;
     
 
     void Start()
@@ -59,7 +59,12 @@ public class DialogueManager : MonoBehaviour
     public void NextConversation()
     {
         conversationIndex++;
-        
+        if (npc.questIndex == 2)
+        {
+            npc.Death();
+            player.enem.theEnemy.SetActive(true);
+        }
+
         if (conversationIndex >= data.conversations.Length)
         {
             FinishConversation();
@@ -70,10 +75,15 @@ public class DialogueManager : MonoBehaviour
 
     public void FinishConversation()
     {
+        if(npc.questIndex == 2)
+        {
+            npc.gameObject.SetActive(false);
+        }
+        if(npc.questIndex == 2)
         canvasManager.player.isInteracting = false;
         lineIndex = 0;
         conversationIndex = 0;
-        //data = null;
+        data = null;
         player.QuestAdvance();
         gameObject.SetActive(false);
     }   
