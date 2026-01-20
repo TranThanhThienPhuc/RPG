@@ -18,5 +18,3 @@ MonoBehaviour:
     data: {fileID: 11400000, guid: e9bfb85ea918a004fa78cf515c77027b, type: 2}
   - stage: 1
     data: {fileID: 11400000, guid: b7ec0c2ecd008b640b19a5c4924747fb, type: 2}
-  - stage: 0
-    data: {fileID: 11400000, guid: 7fc9cb28e09acf94481a70613b8cd482, type: 2}

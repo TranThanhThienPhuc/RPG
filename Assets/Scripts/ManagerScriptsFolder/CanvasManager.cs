@@ -52,7 +52,7 @@ public class CanvasManager : MonoBehaviour
     
     public IEnumerator QuestComplete()
     {
-        questCompleteDisplay.text = "Quest completed";
+        questCompleteDisplay.text = "Quest Completed";
         yield return new WaitForSeconds(2f);
         questCompleteDisplay.text = string.Empty;
     }

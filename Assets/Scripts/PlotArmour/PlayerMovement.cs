@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void QuestComplete()
     {
-        canvasManager.StartCoroutine(canvasManager.QuestComplete());
+        StartCoroutine(canvasManager.QuestComplete());
         questgiver.NextQuest();
         ItemRetrieved = 0;
         LevelManager.Instance.AddExp(1000);

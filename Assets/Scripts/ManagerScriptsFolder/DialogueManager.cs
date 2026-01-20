@@ -61,6 +61,7 @@ public class DialogueManager : MonoBehaviour
         conversationIndex++;
         if (npc.questIndex == 2)
         {
+            this.title.gameObject.SetActive(false);
             npc.Death();
             player.enem.theEnemy.SetActive(true);
         }
@@ -79,7 +80,6 @@ public class DialogueManager : MonoBehaviour
         {
             npc.gameObject.SetActive(false);
         }
-        if(npc.questIndex == 2)
         canvasManager.player.isInteracting = false;
         lineIndex = 0;
         conversationIndex = 0;
