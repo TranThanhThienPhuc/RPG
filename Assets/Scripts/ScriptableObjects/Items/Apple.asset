@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Apple
   m_EditorClassIdentifier: Assembly-CSharp::Items
   itemName: Apple
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: -5844071259007224540, guid: c6a30e91aba24e741bde3a1a8be8a8bc, type: 3}

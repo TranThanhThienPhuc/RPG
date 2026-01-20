@@ -19,6 +19,7 @@ public class NPC : MonoBehaviour
     }
     public void GiveQuest()
     {
+        print("d");
         if (questOrder == null)
         {
             print("There is no quest");
@@ -27,7 +28,8 @@ public class NPC : MonoBehaviour
         dialogueManager.NewDialogue(questOrder[questIndex].theQuest.elements[questStage].data as Dialogue);
         player.QuestStart(questOrder[questIndex].theQuest);
     }
-    void NextQuest()
+
+    public void NextQuest()
     {
         questIndex++;
     }

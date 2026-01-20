@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour
     public Dialogue denyQuest;
     private InputAction interactAction;
     public CanvasManager canvasManager;
+    public PlayerMovement player;
     
 
     void Start()
@@ -72,7 +73,8 @@ public class DialogueManager : MonoBehaviour
         canvasManager.player.isInteracting = false;
         lineIndex = 0;
         conversationIndex = 0;
-        data = null;
+        //data = null;
+        player.QuestAdvance();
         gameObject.SetActive(false);
     }   
 

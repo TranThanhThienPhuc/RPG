@@ -15,11 +15,19 @@ public class PlayerMovement : MonoBehaviour
     public Quests activeQuest;
     public CanvasManager canvasManager;
     public int questStage;
+
     public InputAction fetch;
+    public int ItemRetrieved;
+    public bool canFetch;
 
     private List<string> ItemName;
     private List<int> ItemAmountRequired;
 
+
+    private void Start()
+    {
+        fetch = InputSystem.actions.FindAction("Fetch");
+    }
     void Update()
     {
         if (freeze == true) return;
@@ -32,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         ani.SetBool("Moving", direction.sqrMagnitude > 0);
 
         if (Input.GetKeyDown(KeyCode.F) && interactable == true) Interact();
+        if (fetch.WasPressedThisFrame() && canFetch) Fetch();
     }
 
     void QuestLogic()
@@ -63,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void QuestStart(Quests newQuest)
     {
+        print("Quest started");
         activeQuest = newQuest;
         questStage = 0;
         QuestLogic();
@@ -72,6 +82,17 @@ public class PlayerMovement : MonoBehaviour
     {
         ItemName = null;
         ItemAmountRequired = null;
+        canvasManager.ClearObjective();
+        questStage++;
+        if (questStage < activeQuest.elements.Length) QuestLogic();
+        else QuestComplete();
+    }
+
+    public void QuestComplete()
+    {
+        canvasManager.StartCoroutine(canvasManager.QuestComplete());
+        questgiver.NextQuest();
+        activeQuest = null;
     }
     
     void Interact()
@@ -81,6 +102,14 @@ public class PlayerMovement : MonoBehaviour
         questgiver.GiveQuest();
         Debug.Log("Started dialogue");
     }
+
+    void Fetch()
+    {
+        if (ItemRetrieved <= ItemAmountRequired.Count - 1) ItemRetrieved++;
+        else QuestAdvance();
+        
+    }
+
     private void FixedUpdate()
     {
         transform.Translate(Time.deltaTime * speed * direction.normalized);

@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,10 +11,10 @@ public class CanvasManager : MonoBehaviour
     public TMP_Text objectiveDisplay;
     public TMP_Text levelDisplay;
     public TMP_Text exp;
+    public TMP_Text questCompleteDisplay;
 
     [Header("Reference")]
     public PlayerMovement player;
-    public QuestManager objective;
     [HideInInspector] public DialogueManager dialogue;
 
     void Start()
@@ -47,5 +48,12 @@ public class CanvasManager : MonoBehaviour
     public void ClearObjective()
     {
         objectiveDisplay.text = string.Empty;
+    }
+    
+    public IEnumerator QuestComplete()
+    {
+        questCompleteDisplay.text = "Quest completed";
+        yield return new WaitForSeconds(2f);
+        questCompleteDisplay.text = string.Empty;
     }
 }
